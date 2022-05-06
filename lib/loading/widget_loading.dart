@@ -62,7 +62,7 @@ class KSLoadingDialog extends Dialog {
                       SizedBox(
                         width: dialogContentWidth,
                         height: dialogContentHeight,
-                        child: Lottie.asset("lib/assets/lottie/loading.json"),
+                        child: Lottie.asset("flutter_ks_packages/loading/res/loading.json"),
                       ),
                       Offstage(
                         offstage: dialogTitle == null,
