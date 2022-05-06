@@ -33,7 +33,7 @@ flutter:
 
   # To add assets to your package, add an assets section, like this:
   assets:
-    - lib/loading/res/loading.json
+    - assets/lottie/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   #
