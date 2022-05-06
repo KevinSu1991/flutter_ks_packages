@@ -4,11 +4,15 @@ part 'response_custom.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class CustomResponse {
-  bool isSuccess;
+  int code;
   String error = "";
   String message = "";
 
-  CustomResponse(this.isSuccess, this.error, this.message);
+  CustomResponse(this.code, this.error, this.message);
+
+  bool get isSuccessful {
+    return code == 1;
+  }
 
   ///显示的错误信息，优先显示error， 其次是message
   String get displayMessage {

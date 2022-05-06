@@ -6,16 +6,14 @@ part of 'response_custom.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomResponse _$CustomResponseFromJson(Map<String, dynamic> json) =>
-    CustomResponse(
-      json['isSuccess'] as bool,
+CustomResponse _$CustomResponseFromJson(Map<String, dynamic> json) => CustomResponse(
+      json['code'] as int,
       json['error'] as String,
       json['message'] as String,
     );
 
-Map<String, dynamic> _$CustomResponseToJson(CustomResponse instance) =>
-    <String, dynamic>{
-      'isSuccess': instance.isSuccess,
+Map<String, dynamic> _$CustomResponseToJson(CustomResponse instance) => <String, dynamic>{
+      'code': instance.code,
       'error': instance.error,
       'message': instance.message,
     };
