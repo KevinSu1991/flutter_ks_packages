@@ -43,6 +43,8 @@ class _KSEChartsWidgetState extends State<KSEChartsWidget> {
         ),
         onWebViewCreated: (webController) async {
           _inAppWebViewController = webController;
+
+          await Future.delayed(const Duration(milliseconds: 500));
         },
         onLoadStart: (controller, url) {},
         onLoadStop: (controller, url) {
