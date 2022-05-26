@@ -30,7 +30,7 @@ class _KSEChartsWidgetState extends State<KSEChartsWidget> {
     return Opacity(
       opacity: _webViewOpacity,
       child: InAppWebView(
-        initialFile: "assets/echarts/echarts.html",
+        initialFile: "packages/flutter_ks_packages/assets/echarts/echarts.html",
         initialOptions: InAppWebViewGroupOptions(
           android: AndroidInAppWebViewOptions(useWideViewPort: false),
           crossPlatform: InAppWebViewOptions(
@@ -43,26 +43,24 @@ class _KSEChartsWidgetState extends State<KSEChartsWidget> {
         ),
         onWebViewCreated: (webController) async {
           _inAppWebViewController = webController;
-
-          await Future.delayed(const Duration(milliseconds: 500));
-
-          if (Platform.isAndroid) {
-            setState(() {
-              _webViewOpacity = 1;
-            });
-          }
         },
         onLoadStart: (controller, url) {},
         onLoadStop: (controller, url) {
-          ///执行JS
-          debugPrint("loadECharts($_currentOption)");
-          _inAppWebViewController?.evaluateJavascript(source: "loadECharts($_currentOption)");
+          setState(() {
+            _webViewOpacity = 1;
+
+            ///执行JS
+            debugPrint("loadECharts($_currentOption)");
+            _inAppWebViewController?.evaluateJavascript(source: "loadECharts($_currentOption)");
+          });
         },
-        onLoadError: (controller, url, code, message) {},
+        onLoadError: (controller, url, code, message) {
+          debugPrint("loadECharts failed with error: $code $message");
+        },
         onProgressChanged: (controller, progress) {},
         onUpdateVisitedHistory: (controller, url, androidIsReload) {},
         onConsoleMessage: (controller, consoleMessage) {
-          print(consoleMessage);
+          debugPrint('$consoleMessage');
         },
         androidOnPermissionRequest: (controller, origin, resources) async {
           return PermissionRequestResponse(resources: resources, action: PermissionRequestResponseAction.GRANT);
