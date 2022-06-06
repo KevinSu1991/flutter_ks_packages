@@ -22,22 +22,26 @@ class KSCommonUtils {
   }
 
   ///APP默认文字使用本地的ttf文件
-  static TextStyle getDefaultTextStyle(double fontSize, Color textColor, {required String fontFamily, FontWeight fontWeight = FontWeight.normal}) {
+  static TextStyle getDefaultTextStyle(double fontSize, Color textColor, {String? fontFamily, FontWeight fontWeight = FontWeight.normal}) {
     return TextStyle(fontFamily: fontFamily, fontSize: fontSize, fontWeight: fontWeight, color: textColor, backgroundColor: Colors.transparent);
   }
 
   static TextStyle getTextStyle(
-      {required String fontFamily,
+      {String? fontFamily,
       required FontWeight fontWeight,
       required double fontSize,
       required FontStyle fontStyle,
       required Color textColor,
       required Color backgroundColor,
       Paint? foreground}) {
-    return GoogleFonts.getFont(fontFamily,
-        fontStyle: fontStyle,
-        textStyle: TextStyle(fontWeight: fontWeight, fontSize: fontSize, color: textColor, backgroundColor: backgroundColor),
-        foreground: foreground);
+    if (fontFamily != null) {
+      return GoogleFonts.getFont(fontFamily,
+          fontStyle: fontStyle,
+          textStyle: TextStyle(fontWeight: fontWeight, fontSize: fontSize, color: textColor, backgroundColor: backgroundColor),
+          foreground: foreground);
+    } else {
+      return TextStyle(fontWeight: fontWeight, fontSize: fontSize, color: textColor, backgroundColor: backgroundColor);
+    }
   }
 
   ///设置状态栏透明
