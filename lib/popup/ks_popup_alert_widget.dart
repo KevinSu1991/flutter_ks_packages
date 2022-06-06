@@ -43,7 +43,7 @@ class KSPopupAlertWidget extends StatelessWidget {
               child: Text(
                 title,
                 style: KSCommonUtils.getDefaultTextStyle(17.sp * fontDelta!, const Color(0xFF191F25),
-                    fontFamily: fontFamily!, fontWeight: FontWeight.w500),
+                    fontFamily: fontFamily, fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -54,7 +54,7 @@ class KSPopupAlertWidget extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 10.h * screenDelta!),
               child: Text(
                 subTitle ?? "",
-                style: KSCommonUtils.getDefaultTextStyle(14.sp * fontDelta!, const Color(0xFF555555), fontFamily: fontFamily!),
+                style: KSCommonUtils.getDefaultTextStyle(14.sp * fontDelta!, const Color(0xFF555555), fontFamily: fontFamily),
                 textAlign: TextAlign.center,
                 maxLines: 3,
               ),
@@ -78,7 +78,7 @@ class KSPopupAlertWidget extends StatelessWidget {
                     },
                     child: Text(
                       cancelTitle ?? "Cancel",
-                      style: KSCommonUtils.getDefaultTextStyle(17.sp * fontDelta!, const Color(0xFF242424), fontFamily: fontFamily!),
+                      style: KSCommonUtils.getDefaultTextStyle(17.sp * fontDelta!, const Color(0xFF242424), fontFamily: fontFamily),
                     ),
                   )),
                   Container(
@@ -94,7 +94,7 @@ class KSPopupAlertWidget extends StatelessWidget {
                     },
                     child: Text(
                       confirmTitle ?? "Confirm",
-                      style: KSCommonUtils.getDefaultTextStyle(17.sp * fontDelta!, const Color(0xFF006FFF), fontFamily: fontFamily!),
+                      style: KSCommonUtils.getDefaultTextStyle(17.sp * fontDelta!, const Color(0xFF006FFF), fontFamily: fontFamily),
                     ),
                   )),
                 ],
