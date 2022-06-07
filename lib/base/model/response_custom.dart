@@ -5,8 +5,8 @@ part 'response_custom.g.dart';
 @JsonSerializable(explicitToJson: true)
 class CustomResponse {
   int code;
-  String error = "";
-  String message = "";
+  String? error;
+  String? message;
 
   CustomResponse(this.code, this.error, this.message);
 
@@ -16,11 +16,11 @@ class CustomResponse {
 
   ///显示的错误信息，优先显示error， 其次是message
   String get displayMessage {
-    if (error.isNotEmpty) {
-      return error;
+    if (error != null && error!.isNotEmpty) {
+      return error!;
     }
-    if (message.isNotEmpty) {
-      return message;
+    if (message != null && message!.isNotEmpty) {
+      return message!;
     }
     return "";
   }
