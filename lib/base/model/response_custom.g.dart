@@ -8,8 +8,8 @@ part of 'response_custom.dart';
 
 CustomResponse _$CustomResponseFromJson(Map<String, dynamic> json) => CustomResponse(
       json['code'] as int,
-      json['error'] as String,
-      json['message'] as String,
+      json['error'] as String?,
+      json['message'] as String?,
     );
 
 Map<String, dynamic> _$CustomResponseToJson(CustomResponse instance) => <String, dynamic>{
