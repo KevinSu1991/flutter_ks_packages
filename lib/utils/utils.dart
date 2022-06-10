@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:fk_user_agent/fk_user_agent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +20,11 @@ class KSCommonUtils {
 
   static String getJsonPath(String name, {String format = 'json'}) {
     return 'assets/json/$name.$format';
+  }
+
+  ///查询userAgent相关信息
+  static dynamic getFkUserAgentInfo(String propertyName) {
+    return FkUserAgent.properties?[propertyName];
   }
 
   ///APP默认文字使用本地的ttf文件
