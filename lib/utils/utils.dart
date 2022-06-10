@@ -23,6 +23,10 @@ class KSCommonUtils {
   }
 
   ///查询userAgent相关信息
+  static initFkUserAgent() {
+    FkUserAgent.init();
+  }
+
   static dynamic getFkUserAgentInfo(String propertyName) {
     return FkUserAgent.properties?[propertyName];
   }
