@@ -162,6 +162,12 @@ class KSCommonUtils {
     }
   }
 
+  ///数字格式化成金额的格式123,456,780.11
+  static String formattedMoneyNumber(double value) {
+    final oCcy = NumberFormat("#,##0.00", "en_US");
+    return oCcy.format(value);
+  }
+
   ///下拉刷新控件自定义header
   static CustomHeader customRefreshHeader({required Color textColor, required String fontFamily}) {
     return CustomHeader(builder: (context, mode) {
