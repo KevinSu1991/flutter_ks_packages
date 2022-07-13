@@ -85,6 +85,13 @@ class KSCustomPopupWidgetState extends State<KSCustomPopupWidget> with TickerPro
     });
   }
 
+  @override
+  void dispose() {
+    customPopupWidgetController._popupanimationController.dispose();
+    customPopupWidgetController._opacityanimationController.dispose();
+    super.dispose();
+  }
+
   late double screenWidth;
   late double screenHeight;
   @override
